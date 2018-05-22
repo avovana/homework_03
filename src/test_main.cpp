@@ -45,7 +45,7 @@ BOOST_AUTO_TEST_CASE(map_custom_allocator)
 									, 10
 									, make_factorial_value
 									)
-						)
+						);
 }
 
 BOOST_AUTO_TEST_CASE(map_custom_allocator_exceeded_size)
@@ -69,7 +69,7 @@ BOOST_AUTO_TEST_CASE(map_custom_allocator_exceeded_size)
 										, make_factorial_value
 										)
 						, std::bad_alloc()
-						)
+						);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
