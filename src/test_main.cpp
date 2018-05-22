@@ -58,12 +58,12 @@ BOOST_AUTO_TEST_CASE(map_custom_allocator_exceeded_size)
 		return value;
 	};
 	
-	int size = 10;
-	int sizeExceeded = size + 1;
+	const int size = 10;
+	const int sizeExceeded = size + 1;
 	
 	std::map<int, int, std::less<int>, Allocator<std::pair<const int, int>, size>> map;
 
-	BOOST_CHECK_NO_THROW(
+	BOOST_CHECK_THROW(
 						std::generate_n( std::inserter(map, std::begin(map))
 										, sizeExceeded
 										, make_factorial_value
