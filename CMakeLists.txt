@@ -8,6 +8,8 @@ endif()
 
 project(allocator VERSION 0.0.${VERSION_BUILD})
 
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+
 # set variables for directories with source code
 set(SOURCE_PATH "${PROJECT_SOURCE_DIR}/src")
 
