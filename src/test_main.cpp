@@ -68,7 +68,7 @@ BOOST_AUTO_TEST_CASE(map_custom_allocator_exceeded_size)
 										, sizeExceeded
 										, make_factorial_value
 										)
-						, std::bad_alloc()
+						, std::bad_alloc
 						);
 }
 
