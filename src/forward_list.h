@@ -69,52 +69,52 @@ class ForwardList
         }
 
         bool operator==(const iterator& rhg) const
-		{
-		  return m_node == rhg.m_node;
-		}
+        {
+            return m_node == rhg.m_node;
+        }
 
-    	bool operator!=(const iterator& rhg) const
-		{
-		  return m_node != rhg.m_node;
-		}        
+        bool operator!=(const iterator& rhg) const
+        {
+            return m_node != rhg.m_node;
+        }        
 
         private:
         Node<T>* m_node;
-    };        
+    };       
         
     public:
-    
-        iterator begin() 
-        {
-            return iterator(root.get()); 
-        }
-        
-        iterator end() 
-        {
-            return nullptr; 
-        }
-        
-		void append(T value)
-		{
-            auto newNode = my_allocator.allocate(1);       
-            my_allocator.construct(newNode, value, &my_allocator);  
-            
-            typename Node<T>::unique_node_ptr newNodeUnique(newNode);
 
-            if (!root) 
+    iterator begin() 
+    {
+        return iterator(root.get()); 
+    }
+
+    iterator end() 
+    {
+        return nullptr; 
+    }
+
+    void append(T value)
+    {
+        auto newNode = my_allocator.allocate(1);       
+        my_allocator.construct(newNode, value, &my_allocator);  
+
+        typename Node<T>::unique_node_ptr newNodeUnique(newNode);
+
+        if (!root) 
+        {
+            root = std::move(newNodeUnique);
+        } 
+        else 
+        {
+            Node<T>* curr(root.get());
+
+            while (curr->next) 
             {
-                root = std::move(newNodeUnique);
-            } 
-            else 
-            {
-                Node<T>* curr(root.get());
-        
-                while (curr->next) 
-                {
-                    curr = curr->next.get();
-                }
-        
-                curr->next = std::move(newNodeUnique);
-            }     
-		}
+                curr = curr->next.get();
+            }
+
+            curr->next = std::move(newNodeUnique);
+        }     
+    }
 };
