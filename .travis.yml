@@ -5,7 +5,7 @@ language: cpp
 before_script:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test 
   - sudo apt-get update  
-  - sudo apt-get install -qq g++-6 
+  - sudo apt-get install -qq g++-6 libboost-test1.54-dev
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 60
 script:
   - cmake .
