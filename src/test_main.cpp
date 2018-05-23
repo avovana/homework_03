@@ -12,7 +12,7 @@
 
 BOOST_AUTO_TEST_SUITE(tests)
 
-    BOOST_AUTO_TEST_CASE(factorial_function)
+BOOST_AUTO_TEST_CASE(factorial_function)
 {
     BOOST_STATIC_ASSERT(1 == factorial(0));
     BOOST_STATIC_ASSERT(1 == factorial(1));
