@@ -50,11 +50,9 @@ class ForwardList
     public:
     class iterator
     {
-        friend class ForwardList;
-
-        iterator(Node<T>* node) : m_node(node) {}
-
         public:
+        iterator(Node<T>* node) : m_node(node) {}
+        
         iterator() : m_node(0) {}
 
         iterator& operator ++() 
